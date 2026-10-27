@@ -1,0 +1,5 @@
+node_modules
+dist
+public/footage
+render/frames
+*.mp4

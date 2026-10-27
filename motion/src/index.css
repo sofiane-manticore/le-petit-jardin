@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-creme: #efe6d6;
+  --color-papier: #fbf6ee;
+  --color-encre: #3b2a1e;
+  --color-label: #a8957b;
+  --color-terre: #9c5b20;
+  --color-terre-2: #b5702a;
+  --color-surligne: #e8c690;
+  --color-surligne-txt: #7a4a1a;
+  --color-blender: #2b2b2b;
+  --color-code: #2a1f18;
+  --font-serif: 'Fraunces Variable', Georgia, serif;
+  --font-sans: 'Nunito', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html, body { margin: 0; background: #0d0b09; overflow: hidden; }
+#root { width: 100vw; height: 100vh; display: grid; place-items: center; }
+
+.stage { width: 1080px; height: 1350px; position: relative; overflow: hidden; transform-origin: center; }
+
+/* récit : Fraunces douce comme sur le site */
+.serif { font-family: var(--font-serif); font-variation-settings: 'SOFT' 100, 'WONK' 0; font-optical-sizing: auto; }
+.mask { display: block; overflow: hidden; padding: 0.02em 0.06em 0.14em; margin: -0.02em -0.06em -0.14em; }
+.mask > .ln { display: block; will-change: transform; }
+
+/* surlignage qui se dessine de gauche à droite (identique au site) */
+.hl {
+  background-image: linear-gradient(var(--hl, #e8c690), var(--hl, #e8c690));
+  background-repeat: no-repeat;
+  background-size: 0% 42%;
+  background-position: 0 88%;
+  padding: 0 0.08em;
+  margin: 0 -0.04em;
+}
+
+.type { display: inline-block; overflow: hidden; white-space: pre; vertical-align: bottom; }

@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* Tokens du design (design/README.md) */
+@theme {
+  --color-cream: #efe6d6;
+  --color-cream-light: #fbf4e6;
+  --color-ink: #3b2a1e;
+  --color-label: #a8957b;
+  --color-accent: #9c5b20;
+  --color-accent-dark: #8a4f1c;
+  --color-accent-warm: #a0612b;
+  --color-accent-olive: #7e5a2e;
+  --color-progress: #b5702a;
+  --color-track: #ddcdb2;
+  --color-mark-text: #7a4a1a;
+  --color-mark: #e8c690;
+  /* nuit sur la timeline : la teinte de nuit de la scène, mêlée à la piste */
+  --color-night: #c3bdcb;
+  /* fond uni de l'intro (à valider : crème du design par défaut) */
+  --color-curtain: #efe6d6;
+
+  --font-story: "Fraunces", Georgia, serif;
+  --font-ui: "Nunito", system-ui, sans-serif;
+
+  --ease-rise: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-mark: cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+  body {
+    @apply bg-cream text-ink font-ui antialiased;
+    overscroll-behavior: none;
+  }
+  button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+  }
+}
+
+/* Fraunces douce : axe SOFT à 100, poids 350 */
+@utility font-story-soft {
+  font-family: var(--font-story);
+  font-variation-settings: "SOFT" 100;
+  font-weight: 350;
+}
+
+/* Mot clé du récit : surlignage peint de bas en haut (background-size animé par GSAP) */
+@utility story-mark {
+  font-style: italic;
+  color: var(--color-mark-text);
+  /* le surlignage déborde un peu du mot sans l'écarter de la ponctuation */
+  padding: 0 0.12em;
+  margin: 0 -0.12em;
+  background-image: linear-gradient(var(--color-mark), var(--color-mark));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 0% 42%;
+}
